@@ -294,6 +294,7 @@ namespace Takisnmore.Pages
                     descriptiongrid.IsEnabled = false;
                     //Divide the item string and put the info in the respective UI elements
                     if (itemproperties.Length > 2)
+
                     {
                         if (itemproperties[2].Contains('I'))
                         {
