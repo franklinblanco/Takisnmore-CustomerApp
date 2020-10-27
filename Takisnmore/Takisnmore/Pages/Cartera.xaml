@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Takisnmore.Pages.Cartera"
+             Title="Cartera">
+    <StackLayout>
+        <!--Card for the Wallet-->
+        <Grid Margin="10" HeightRequest="700">
+            <Button HeightRequest="250"
+                CornerRadius="20"
+                BorderColor="MediumPurple"
+                    BorderWidth="1"
+                BackgroundColor="Transparent"
+                    />
+            <StackLayout  Margin="20,20,0,0">
+                <Label Text="Balance:"
+                       TextColor="Gray"
+                       FontSize="18"/>
+                <Label Text="DOP 0.00"
+                       FontSize="50"/>
+                <Label Text="Franklin Blanco"
+                       TextColor="DimGray"
+                       FontSize="27"/>
+                <Button Margin="0,20,150,0"
+                        CornerRadius="50"
+                        BackgroundColor="MediumPurple"
+                        Text="+  Agregar Balance"
+                        TextColor="White"
+                        Clicked="AddBalance"/>
+                <!--Remember to add the Clicked Event handlers to the 2 buttons above-->
+            </StackLayout>
+        </Grid>
+        <Label Text="Métodos de Pago"
+               Margin="10,0,0,0"
+               TextColor="DimGray"/>
+        <!--Add a payment Method-->
+        <Button Text="+ Agregar"
+                FontSize="20"
+                FontAttributes="Bold"
+                BackgroundColor="Transparent"
+                BorderColor="MediumPurple"
+                TextColor="MediumPurple"
+                BorderWidth="1"
+                Margin="5"
+                Clicked="AddPayment"/>
+        <!--List of all Cards Registered-->
+        <ListView ItemsSource="{Binding PaymentMethods}"
+                  ItemSelected="OnListViewItemSelected"
+                  ItemTapped="OnListViewItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="5*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding ImageUrl}"
+                                   Aspect="AspectFit"
+                                   Scale="2"/>
+                            <Label Text="{Binding Name}"
+                                   FontSize="20"
+                                   Grid.Column="1"
+                                   HorizontalTextAlignment="Start"
+                                   VerticalTextAlignment="Center"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+    </StackLayout>
+    
+</ContentPage>

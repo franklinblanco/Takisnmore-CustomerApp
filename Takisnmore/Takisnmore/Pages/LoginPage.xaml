@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Takisnmore.Pages.LoginPage"
+             xmlns:local="clr-namespace:Takisnmore"
+             xmlns:Controls="clr-namespace:Takisnmore"
+             NavigationPage.HasNavigationBar="False"
+             ControlTemplate="{StaticResource PageWithGradient}">
+    
+    
+
+    <Frame
+         
+        BackgroundColor="#00ffffff"
+        HasShadow="False" 
+        CornerRadius="1"
+        Margin="50, 50, 50, 50">
+        <StackLayout>
+            <Image HorizontalOptions="Center" Source="{local:ImageResource Takisnmore.Images.takisnmorelogotrans.png}"/>
+
+            <Grid Margin="0,0,0,30">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+                <BoxView BackgroundColor="#1Affffff"/>
+                <Label Text="+1"
+                       FontSize="Medium"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       TextColor="#99FFFFFF"/>
+                <BoxView BackgroundColor="#1Affffff"
+                         Grid.Column="1"/>
+                <Controls:XEntry PlaceholderColor="#99FFFFFF"
+                                 TextColor="#99FFFFFF"
+                                 Placeholder="Numero Telefónico" 
+                                 VerticalTextAlignment="Center"
+                                 HorizontalTextAlignment="Center"
+                                 Keyboard="Telephone"
+                                 Grid.Column="1"
+                                 x:Name="PhoneNumberEntry"
+                                 MaxLength="10"
+                                 />
+
+            </Grid>
+
+            
+            <Button BackgroundColor="#00ffffff" 
+                    CornerRadius="5" 
+                    HeightRequest="60" 
+                    BorderColor="#40f1f1f1" 
+                    BorderWidth="1"
+                    Text="Siguiente" 
+                    TextColor="#40ffffff"
+                    Clicked="VerifyNumber"/>
+            
+        </StackLayout>
+    </Frame>
+</ContentPage>

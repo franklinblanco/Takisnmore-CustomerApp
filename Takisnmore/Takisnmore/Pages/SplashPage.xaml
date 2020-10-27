@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Takisnmore.Pages.SplashPage"
+             xmlns:local="clr-namespace:Takisnmore"
+             ControlTemplate="{StaticResource PageWithGradient}"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid>
+        <Frame BackgroundColor="#00ffffff"
+           HasShadow="False">
+            <Image Source="{local:ImageResource Takisnmore.Images.takisnmorelogotrans.png}"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               Margin="0,0,0,250"/>
+        </Frame>
+        <StackLayout Margin="20, 250, 20, 0"
+                     VerticalOptions="Center">
+            <Label x:Name="errorlabel"
+               Text="A Connection with the Takisnmore Servers could not be found, check your internet connection."
+               FontSize="18"
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"
+               IsVisible="false"/>
+            <Button BackgroundColor="Transparent"
+                    Margin="0,20,0,0"
+                    Text="Try Again"
+                    FontSize="25"
+                    Clicked="AttemptConnectionClicked"
+                    IsEnabled="False"
+                    IsVisible="False"
+                    x:Name="tryagainbtn"/>
+        </StackLayout>
+        
+    </Grid>
+    
+    
+    
+</ContentPage>

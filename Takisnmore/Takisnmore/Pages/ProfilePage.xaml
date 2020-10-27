@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Takisnmore.Pages.ProfilePage"
+             Title="Perfil"
+             xmlns:local="clr-namespace:Takisnmore">
+
+    <StackLayout Padding="35" Spacing="30">
+        <Frame CornerRadius="10000"
+               HeightRequest="180"
+               WidthRequest="180"
+               HorizontalOptions="Center"
+               BackgroundColor="White"
+               Padding="0">
+            <Grid>
+                <Image Source="{local:ImageResource Takisnmore.Images.Icons.Default.profilepicturedefault.jpg}"/> <!--default picture-->
+                <Image/> <!--customer profile picture-->
+                <Button CornerRadius="10000"
+                        BackgroundColor="Transparent"/>
+            </Grid>
+        </Frame>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Label Text="Franklin Blanco"
+               HorizontalTextAlignment="Center"
+                   HorizontalOptions="End"
+                   VerticalTextAlignment="Center"
+                   WidthRequest="250"
+                   Margin="35,0,0,0"/>
+            <Image Source="{local:ImageResource Takisnmore.Images.Icons.UI_Icon_Pen2.png}"
+                   Aspect="AspectFit">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ChangeName"/>
+                </Image.GestureRecognizers>
+            </Image>
+        </StackLayout>
+        
+    </StackLayout>
+</ContentPage>

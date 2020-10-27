@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Takisnmore.Pages.VerificationPage"
+             xmlns:local="clr-namespace:Takisnmore"
+             xmlns:Controls="clr-namespace:Takisnmore"
+             NavigationPage.HasNavigationBar="True"
+             NavigationPage.HasBackButton="False">
+    
+    <NavigationPage.TitleView>
+        <Label Text="Verificación SMS" 
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"
+               FontSize="25"
+               TextColor="White"
+               FontAttributes="Bold"/>
+    </NavigationPage.TitleView>
+    
+    <StackLayout Padding="20,20,20,20">
+        <Label Text="Hemos envíado un código de 6 dígitos por SMS al número (809)-223-5564."
+               HorizontalOptions="Center"
+               HorizontalTextAlignment="Center"
+               FontSize="18"
+               x:Name="VerificationInfoLabel"/>
+
+        <Label Text="Deseas cambiar el número?"
+               FontSize="18"
+               HorizontalTextAlignment="Center"
+               TextColor="LightSlateGray"
+               Margin="0,0,0,40">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="ChangeNumber"/>
+            </Label.GestureRecognizers>
+        </Label>
+        
+        <Controls:XEntry PlaceholderColor="Gray"
+                         TextColor="Black"
+                         Placeholder="Código de 6 Digitos"
+                         HorizontalOptions="Center"
+                         HorizontalTextAlignment="Center"
+                         MaxLength="6"
+                         x:Name="OTPEntry"
+                         Keyboard="Numeric"/>
+
+        <BoxView BackgroundColor="Gray"
+                 HeightRequest="1"
+                 Margin="90,0,90,20"/>
+
+        <Button BorderColor="LightGray"
+                CornerRadius="5"
+                BackgroundColor="MediumPurple"
+                Text="VALIDAR"
+                TextColor="White"
+                Clicked="VerifyOTP"
+                Margin="90,0,90,20"/>
+    </StackLayout>
+    
+</ContentPage>

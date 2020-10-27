@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Takisnmore.Pages.CashInfo"
+             Title="Efectivo">
+    <StackLayout Padding="20">
+        <Label Text="Pagos con Efectivo"
+               Margin="0,0,0,20"/>
+        <Label Text="Para poder pagar con efectivo, se requiere tener al menos una tarjéta de crédito registrada."
+               FontSize="20"
+               TextColor="Gray"/>
+        <Label Text="Una vez tenga esto, puede hacer pedidos pagando en efectivo!"
+               FontSize="20"
+               TextColor="Gray"/>
+    </StackLayout>
+    
+</ContentPage>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Takisnmore.Pages.MetodoDePago"
+             Title="Tarjéta de Crédito/Debito">
+
+    <StackLayout Padding="25,50,0,0">
+        <Label Text="Número de Tarjéta"
+               TextColor="LightGray"
+               FontSize="18"/>
+        <Label x:Name="CardNumber"
+            Text="**** **** **** XXXX"
+               FontSize="28"
+               Margin="0,0,0,25"/>
+        <Label Text="Tipo de Tarjéta"
+               TextColor="LightGray"
+               FontSize="18"/>
+        <Label Text="Visa"
+               x:Name="TypeOfCard"
+               Margin="0,0,0,25"/>
+        <Label Text="Fecha de Expiración"
+               TextColor="LightGray"
+               FontSize="18"/>
+        <Label Text="x/x"
+               x:Name="ExpirationDate"/>
+
+
+    </StackLayout>
+    
+</ContentPage>

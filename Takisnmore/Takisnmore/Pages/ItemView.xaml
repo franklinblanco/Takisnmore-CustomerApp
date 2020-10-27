@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Takisnmore.Pages.ItemView"
+             xmlns:local="clr-namespace:Takisnmore"
+             Title="Producto">
+    <Grid>
+        <ScrollView Orientation="Vertical">
+            <StackLayout Orientation="Vertical"
+                 Padding="30">
+                <!--Title and Business name-->
+                <Label Text="{Binding Name}"
+               FontSize="40"
+               FontAttributes="Bold"
+               Margin="0,0,50,0"/>
+                <Label Text="{Binding StoreName}"
+               TextColor="Gray"
+               FontSize="20"
+               FontAttributes="Bold"
+               Margin="0,10,0,15">
+                    <Label.GestureRecognizers>
+                        <!--Add the Tapped Method Below-->
+                        <TapGestureRecognizer/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <!--Review, Delivery Cost, and Delivery Time-->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="23"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="★★★★☆"
+                   TextColor="PaleVioletRed"
+                   FontSize="23"
+                   Grid.Column="0"
+                   FontAttributes="Bold"/>
+                    <Label Text="138 reviews"
+                   TextColor="Gray"
+                   Grid.Row="1"
+                   FontSize="17"/>
+                    <Label Text="RD$100"
+                   FontSize="23"
+                   FontAttributes="Bold"
+                   Grid.Column="1"/>
+                    <Label Text="Delivery"
+                   FontSize="17"
+                   TextColor="Gray"
+                   Grid.Column="1"
+                   Grid.Row="1"/>
+                    <Label Text="48"
+                   FontSize="23"
+                   FontAttributes="Bold"
+                   Margin="20,0,0,0"
+                   Grid.Column="2"
+                   Grid.Row="0"/>
+                    <Label Text="Minutos"
+                   FontSize="17"
+                   TextColor="Gray"
+                   Margin="20,0,0,0"
+                   Grid.Column="2"
+                   Grid.Row="1"/>
+                </Grid>
+
+                <!--Separation Line-->
+                <BoxView BackgroundColor="LightGray"
+                 HeightRequest="1"
+                 Margin="0,10,0,10"/>
+
+                <!--Content Start-->
+                <!--Title-->
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Fotos Destacadas"
+                   FontAttributes="Bold"
+                   FontSize="25"
+                   Margin="0,0,0,20"/>
+                    <!--Pictures-->
+                    <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                        <StackLayout Orientation="Horizontal"
+                                     Spacing="10"
+                                     HeightRequest="247.5"
+                                     BindableLayout.ItemsSource="{Binding Photos}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame WidthRequest="330"
+                                        CornerRadius="10"
+                                        IsClippedToBounds="True"
+                                        Margin="0"
+                                        Padding="0">
+                                        <Image Source="{Binding .}"
+                                            Aspect="AspectFill"/>
+                                    </Frame>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+                    </ScrollView>
+                    <!--Price and Description-->
+                    <Frame Margin="0,-5,5,0">
+                        <StackLayout Orientation="Vertical">
+                            <Label Text="{Binding Description}"
+                               FontSize="19"
+                               FontAttributes="Bold"/>
+                            <Label Text="{Binding Price}"
+                               FontSize="17"
+                               TextColor="Gray"/>
+                        </StackLayout>
+
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+        <Button BackgroundColor="PaleVioletRed"
+                CornerRadius="20"
+                VerticalOptions="End"
+                HorizontalOptions="End"
+                ImageSource="{local:ImageResource Takisnmore.Images.Icons.UI_Icon_ShoppingBag.png}"
+                WidthRequest="60"
+                HeightRequest="60"
+                Margin="10"/>
+    </Grid>
+
+</ContentPage>

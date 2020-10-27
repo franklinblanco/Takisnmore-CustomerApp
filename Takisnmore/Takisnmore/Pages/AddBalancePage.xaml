@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Takisnmore.Pages.AddBalancePage"
+             xmlns:local="clr-namespace:Takisnmore"
+             Title="Agregar Balance">
+    <StackLayout Padding="10">
+        <Label Text="Agrega fondos a tu Cartera." FontSize="23"
+               Margin="0,0,0,10"/>
+        <Label Text="¿Cuanto Quisiera agregarle a su balance?"
+               FontSize="20"
+               TextColor="Gray"/>
+        <StackLayout Padding="0,25,0,0">
+            <!--Here go all the Options-->
+            <Grid Margin="0,0,0,50">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="7*"/>
+                </Grid.ColumnDefinitions>
+                <RadioButton GroupName="AmountToAdd"
+                             />
+                <Label Grid.Column="1"
+                       Text="DOP 500.00"
+                       FontSize="20"
+                       VerticalOptions="Center"/>
+            </Grid>
+            <Grid Margin="0,0,0,50">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="7*"/>
+                </Grid.ColumnDefinitions>
+                <RadioButton GroupName="AmountToAdd"
+                             />
+                <Label Grid.Column="1"
+                       Text="DOP 1000.00"
+                       FontSize="20"
+                       VerticalOptions="Center"/>
+            </Grid>
+            <Grid Margin="0,0,0,30">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="7*"/>
+                </Grid.ColumnDefinitions>
+                <RadioButton GroupName="AmountToAdd"
+                             />
+                <Label Grid.Column="1"
+                       Text="DOP 2000.00"
+                       FontSize="20"
+                       VerticalOptions="Center"/>
+            </Grid>
+            <Label Text="Cantidad Específica"
+                   TextColor="Gray"
+                   FontSize="20" Margin="0,0,0,20"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="7*"/>
+                </Grid.ColumnDefinitions>
+                <RadioButton GroupName="AmountToAdd"/>
+                <local:XEntry Grid.Column="1"
+                              Placeholder="RD$0.00"
+                              MaxLength="8"
+                              Keyboard="Numeric"/>
+            </Grid>
+            <BoxView BackgroundColor="Gray"
+                     HeightRequest="1"
+                     Margin="40,-10,200,25"/>
+            
+            
+            <Button BackgroundColor="MediumPurple"
+                    Text="Siguiente"
+                    Clicked="AddFundsToBalance"/>
+
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

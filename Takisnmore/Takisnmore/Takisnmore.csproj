@@ -1,0 +1,190 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Fonts\OpenSans-Bold.ttf" />
+    <None Remove="Fonts\OpenSans-BoldItalic.ttf" />
+    <None Remove="Fonts\OpenSans-SemiBoldItalic.ttf" />
+    <None Remove="Images\Icons\coffeecupicon.png" />
+    <None Remove="Images\Icons\coffeeicons.png" />
+    <None Remove="Images\Icons\Default\profilepicturedefault.jpg" />
+    <None Remove="Images\Icons\donuticons.png" />
+    <None Remove="Images\Icons\fastfoodicons.png" />
+    <None Remove="Images\Icons\fireicon.png" />
+    <None Remove="Images\Icons\fireiconsmall.png" />
+    <None Remove="Images\Icons\homeicon.png" />
+    <None Remove="Images\Icons\HotChipsIcon.jpg" />
+    <None Remove="Images\Icons\HotChipsIcon.png" />
+    <None Remove="Images\Icons\jollyranchericon.png" />
+    <None Remove="Images\Icons\ricekrispiesicon.jpg" />
+    <None Remove="Images\Icons\Sourpatchicon.png" />
+    <None Remove="Images\Icons\takisbagicon.png" />
+    <None Remove="Images\Icons\Takisicon.png" />
+    <None Remove="Images\Icons\UI_Icon_Book.png" />
+    <None Remove="Images\Icons\UI_Icon_CalendarConfirm.png" />
+    <None Remove="Images\Icons\UI_Icon_CalendarMonth.png" />
+    <None Remove="Images\Icons\UI_Icon_Community.png" />
+    <None Remove="Images\Icons\UI_Icon_Home.png" />
+    <None Remove="Images\Icons\UI_Icon_ID.png" />
+    <None Remove="Images\Icons\UI_Icon_List.png" />
+    <None Remove="Images\Icons\UI_Icon_Location.png" />
+    <None Remove="Images\Icons\UI_Icon_Menu.png" />
+    <None Remove="Images\Icons\UI_Icon_Pen1.png" />
+    <None Remove="Images\Icons\UI_Icon_Pen2.png" />
+    <None Remove="Images\Icons\UI_Icon_Search.png" />
+    <None Remove="Images\Icons\UI_Icon_ShoppingBag.png" />
+    <None Remove="Images\Icons\UI_Icon_StarEmpty.png" />
+    <None Remove="Images\Icons\UI_Icon_Wallet.png" />
+    <None Remove="Images\Images\takisbythepool.jpg" />
+    <None Remove="Images\Images\takisfallingillustrated.jpg" />
+    <None Remove="Images\RawIcons\UI_Icon_Home.png" />
+    <None Remove="Images\takisnmorelogo.jpeg" />
+    <None Remove="Images\takisnmorelogotrans.png" />
+    <None Remove="Images\Whitebg.jpg" />
+    <None Remove="Images\Whitebg4k.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Fonts\OpenSans-Bold.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Fonts\OpenSans-BoldItalic.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Images\Icons\coffeeicons.png" />
+    <EmbeddedResource Include="Images\Icons\donuticons.png" />
+    <EmbeddedResource Include="Images\Icons\fastfoodicons.png" />
+    <EmbeddedResource Include="Images\Icons\coffeecupicon.png" />
+    <EmbeddedResource Include="Images\Icons\Default\profilepicturedefault.jpg" />
+    <EmbeddedResource Include="Images\Icons\fireicon.png" />
+    <EmbeddedResource Include="Images\Icons\fireiconsmall.png" />
+    <EmbeddedResource Include="Images\Icons\HotChipsIcon.png" />
+    <EmbeddedResource Include="Images\Icons\jollyranchericon.png" />
+    <EmbeddedResource Include="Images\Icons\ricekrispiesicon.jpg" />
+    <EmbeddedResource Include="Images\Icons\Sourpatchicon.png" />
+    <EmbeddedResource Include="Images\Icons\takisbagicon.png" />
+    <EmbeddedResource Include="Images\Icons\Takisicon.png" />
+    <EmbeddedResource Include="Images\Icons\UI_Icon_Book.png" />
+    <EmbeddedResource Include="Images\Icons\UI_Icon_CalendarConfirm.png" />
+    <EmbeddedResource Include="Images\Icons\UI_Icon_CalendarMonth.png" />
+    <EmbeddedResource Include="Images\Icons\UI_Icon_Community.png" />
+    <EmbeddedResource Include="Images\Icons\homeicon.png" />
+    <EmbeddedResource Include="Images\Icons\UI_Icon_Home.png" />
+    <EmbeddedResource Include="Images\Icons\UI_Icon_ID.png" />
+    <EmbeddedResource Include="Images\Icons\UI_Icon_List.png" />
+    <EmbeddedResource Include="Images\Icons\UI_Icon_Location.png" />
+    <EmbeddedResource Include="Images\Icons\UI_Icon_Menu.png" />
+    <EmbeddedResource Include="Images\Icons\UI_Icon_Pen1.png" />
+    <EmbeddedResource Include="Images\Icons\UI_Icon_Pen2.png" />
+    <EmbeddedResource Include="Images\Icons\UI_Icon_Search.png" />
+    <EmbeddedResource Include="Images\Icons\UI_Icon_ShoppingBag.png" />
+    <EmbeddedResource Include="Images\Icons\UI_Icon_StarEmpty.png" />
+    <EmbeddedResource Include="Images\Icons\UI_Icon_Wallet.png" />
+    <EmbeddedResource Include="Images\Images\takisbythepool.jpg" />
+    <EmbeddedResource Include="Images\Images\takisfallingillustrated.jpg" />
+    <EmbeddedResource Include="Images\RawIcons\UI_Icon_Home.png" />
+    <EmbeddedResource Include="Images\takisnmorelogo.jpeg" />
+    <EmbeddedResource Include="Images\takisnmorelogotrans.png" />
+    <EmbeddedResource Include="Images\Whitebg.jpg" />
+    <EmbeddedResource Include="Images\Whitebg4k.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs" Version="7.1.0.454" />
+    <PackageReference Include="MagicGradients" Version="1.1.1" />
+    <PackageReference Include="Plugin.MediaManager" Version="1.0.3" />
+    <PackageReference Include="Plugin.MediaManager.Forms" Version="1.0.3" />
+    <PackageReference Include="Twilio" Version="5.47.0" />
+    <PackageReference Include="Xam.Plugin.DeviceInfo" Version="4.1.1" />
+    <PackageReference Include="Xamarin.Forms" Version="4.6.0.1141" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Xamarin.Android.Support.v7.AppCompat">
+      <HintPath>..\..\..\..\..\..\..\Microsoft\Xamarin\NuGet\xamarin.android.support.v7.appcompat\28.0.0.3\lib\monoandroid90\Xamarin.Android.Support.v7.AppCompat.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform.iOS">
+      <HintPath>..\..\..\..\..\..\..\Microsoft\Xamarin\NuGet\xamarin.forms\4.6.0.1141\buildTransitive\XCODE11\Xamarin.Forms.Platform.iOS.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\OpenSans-SemiBoldItalic.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Pages\AddBalancePage.xaml.cs">
+      <DependentUpon>AddBalancePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Cartera.xaml.cs">
+      <DependentUpon>Cartera.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Pages\AddBalancePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\AgregarMetodoDePago.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\CashInfo.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\ChoosePaymentMethod.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\ConnectionDebug.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Direcciones.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\HomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\ItemView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\LightThemePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\LoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Cartera.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\MetodoDePago.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\ProfilePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\SignupFinalForm.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\SplashPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\VerificationPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

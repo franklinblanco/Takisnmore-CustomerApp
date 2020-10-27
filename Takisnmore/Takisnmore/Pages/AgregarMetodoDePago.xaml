@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Takisnmore.Pages.AgregarMetodoDePago"
+             xmlns:Controls="clr-namespace:Takisnmore"
+             Title="Agregar Método de Pago">
+    <StackLayout Margin="25,25,25,0">
+        <Label Text="Numero de Tarjéta"
+               TextColor="LightGray"
+               FontSize="18"
+               Margin="12,0,0,0"/>
+        <Grid>
+            <!--CC Number input grid-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="10*"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="CreditCardBase"
+                   HeightRequest="50"/>
+            <Controls:XEntry Placeholder="XXXX-XXXX-XXXX-XXXX"
+                             Grid.Column="1"
+                             Keyboard="Numeric"
+                             MaxLength="16"/>
+        </Grid>
+        <!--Line under text-->
+        <BoxView BackgroundColor="LightGray"
+                 HeightRequest="1"
+                 Margin="15,-10,0,25"/>
+        <!--Exp. Date & CVV labels and Entries-->
+        <Grid Margin="15,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <Label Text="Fecha de Expiración"
+               TextColor="LightGray"
+               FontSize="18"/>
+            <Label Text="CVV"
+               TextColor="LightGray"
+               FontSize="18"
+               Grid.Column="1"/>
+            <Controls:XEntry Placeholder="MM/YY"
+                             Keyboard="Numeric"
+                             Grid.Row="1"
+                             MaxLength="7"/>
+            <Controls:XEntry Placeholder="XXX"
+                             Keyboard="Numeric"
+                             MaxLength="3"
+                             Grid.Row="1"
+                             Grid.Column="1"/>
+        </Grid>
+        <!--Underline for CVV & Date-->
+        <Grid Margin="15,-10,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <BoxView BackgroundColor="LightGray"
+                     HeightRequest="1"
+                     Margin="0,0,25,0"/>
+            <BoxView BackgroundColor="LightGray"
+                     HeightRequest="1"
+                     Margin="0,0,25,0"
+                     Grid.Column="1"/>
+        </Grid>
+        <Label Text="Código Postal"
+               TextColor="LightGray"
+               FontSize="18"
+               Margin="15,25,0,0"/>
+        <Controls:XEntry Placeholder="10147"
+                         Margin="15,0,0,0"
+                         MaxLength="8"/>
+        <BoxView BackgroundColor="LightGray"
+                 HeightRequest="1"
+                 Margin="15,-10,0,25"/>
+        <Button BackgroundColor="MediumPurple"
+                Margin="15,25,0,0"
+                Text="Guardar"
+                TextColor="White"/>
+
+    </StackLayout>
+
+</ContentPage>

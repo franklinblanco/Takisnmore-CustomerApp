@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Takisnmore.Pages.SignupFinalForm"
+             xmlns:local="clr-namespace:Takisnmore"
+             xmlns:Controls="clr-namespace:Takisnmore"
+             NavigationPage.HasNavigationBar="True"
+             NavigationPage.HasBackButton="False">
+
+    <NavigationPage.TitleView>
+        <Label Text="Por Ultimo..." 
+               VerticalTextAlignment="Center"
+               FontSize="25"
+               TextColor="White"
+               FontAttributes="Bold"/>
+    </NavigationPage.TitleView>
+
+    <StackLayout Padding="20,20,20,20">
+        <Label Text="Nombre y Apellido"
+               HorizontalOptions="Start"
+               HorizontalTextAlignment="Start"
+               FontSize="23"/>
+
+        <Controls:XEntry PlaceholderColor="Gray"
+                         TextColor="Black"
+                         Placeholder="Franklin Blanco"
+                         HorizontalOptions="Start"
+                         HorizontalTextAlignment="Start"
+                         MaxLength="50"
+                         x:Name="NameEntry"
+                         Keyboard="Chat"/>
+
+        <BoxView BackgroundColor="Gray"
+                 HeightRequest="1"
+                 Margin="0,0,0,20"/>
+        
+        <Label Text="Sexo"
+               FontSize="23"/>
+        <StackLayout Orientation="Horizontal" Spacing="35" Margin="0,0,0,20">
+            <RadioButton Text="Masculino" GroupName="Sexo" FontSize="20" x:Name="maleradiobutton"/>
+            <RadioButton Text="Femenino" GroupName="Sexo" FontSize="20" x:Name="femaleradiobutton"/>
+        </StackLayout>
+        
+        <StackLayout Orientation="Horizontal" Spacing="50">
+            <StackLayout Orientation="Vertical">
+                <Label Text="Contraseña Corta"
+               HorizontalOptions="Start"
+               HorizontalTextAlignment="Start"
+               FontSize="23"/>
+
+                <Controls:XEntry PlaceholderColor="Gray"
+                         TextColor="Black"
+                         Placeholder="4-6 dígitos"
+                         HorizontalOptions="Start"
+                         HorizontalTextAlignment="Start"
+                         MaxLength="6"
+                         x:Name="PasswordEntry"
+                         Keyboard="Numeric"
+                         IsPassword="True"/>
+
+                <BoxView BackgroundColor="Gray"
+                 HeightRequest="1"
+                 Margin="0,0,0,20"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                <Label Text="Repítela"
+               HorizontalOptions="Start"
+               HorizontalTextAlignment="Start"
+               FontSize="23"/>
+
+                <Controls:XEntry PlaceholderColor="Gray"
+                         TextColor="Black"
+                         Placeholder="Igual"
+                         HorizontalOptions="Start"
+                         HorizontalTextAlignment="Start"
+                         MaxLength="6"
+                         x:Name="ConfirmPasswordEntry"
+                         Keyboard="Numeric"
+                         IsPassword="True"/>
+
+                <BoxView BackgroundColor="Gray"
+                 HeightRequest="1"
+                 Margin="0,0,0,20"/>
+            </StackLayout>
+        </StackLayout>
+
+        <Button BorderColor="LightGray"
+                CornerRadius="5"
+                BackgroundColor="MediumPurple"
+                Text="VALIDAR"
+                TextColor="White"
+                Margin="0,0,0,20"
+                Clicked="SendForm"/>
+    </StackLayout>
+    
+</ContentPage>
+
+    
+    
+    

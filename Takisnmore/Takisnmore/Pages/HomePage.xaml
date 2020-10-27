@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Takisnmore.Pages.HomePage"
+             xmlns:local="clr-namespace:Takisnmore"
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
+             xmlns:mediamanager="clr-namespace:MediaManager.Forms;assembly=MediaManager.Forms"
+             NavigationPage.HasNavigationBar="False">
+    <!--Top menu Replicating navigation bar-->
+    <Grid>
+        <ScrollView Orientation="Vertical"
+                    VerticalScrollBarVisibility="Always">
+            <StackLayout>
+            <!--Homepage top panel-->
+                <Grid>
+                    <BoxView BackgroundColor="MediumPurple" 
+                     HeightRequest="370"/>
+                <StackLayout Padding="20">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Clicked="ToggleMenu"
+                            ImageSource="{local:ImageResource Takisnmore.Images.Icons.UI_Icon_Menu.png}"
+                            BackgroundColor="Transparent"
+                            HorizontalOptions="Start"
+                            Margin="-25,0,0,0"/>
+                            <Button Grid.Column="1"
+                                    HorizontalOptions="End"
+                                    Text="Comida"
+                                    BackgroundColor="Transparent"
+                                    BorderColor="LightGray"
+                                    BorderWidth="1"
+                                    CornerRadius="30"
+                                    TextColor="White"
+                                    HeightRequest="50"
+                                    VerticalOptions="Center"
+                                    Clicked="ChooseShop"/>
+                        </Grid>
+                    
+
+                    <Label Text="Dirección de Envío"
+                   FontSize="20"
+                   FontFamily="{StaticResource RegularFont}"
+                   TextColor="LightGray"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"/>
+                    <!--Address Grid containing pencil Button and name of direction-->
+                    <Grid Margin="0,0,0,25">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="25"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Blue Mall Santo Domingo"
+                           FontSize="25"
+                           TextColor="White"
+                           FontAttributes="Bold">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="ElegirDireccion"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Image Source="{local:ImageResource Takisnmore.Images.Icons.UI_Icon_Pen1.png}"
+                               Grid.Column="1"
+                               Aspect="AspectFit">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="ElegirDireccion"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </Grid>
+                    <!--Scrollview containing the Categories-->
+                    <ScrollView Orientation="Horizontal"
+                                HorizontalScrollBarVisibility="Never"
+                                HeightRequest="130">
+                        <StackLayout Orientation="Horizontal"
+                                     Spacing="20">
+                            <!--Default Category Template-->
+                            <StackLayout Orientation="Vertical">
+                                    <Frame CornerRadius="30" IsClippedToBounds="True" Margin="0" Padding="0">
+                                        <Image Source="{local:ImageResource Takisnmore.Images.Whitebg.jpg}"
+                                        HorizontalOptions="Start"
+                                        WidthRequest="100"
+                                        HeightRequest="100"/>
+                                        <Image Source="{local:ImageResource Takisnmore.Images.Icons.fastfoodicons.png}"
+                                                WidthRequest="100"
+                                                HeightRequest="100"
+                                                Aspect="AspectFill"
+                                                BackgroundColor="Transparent"/>
+                                    </Frame>
+                                    <Label Text="Comida"
+                                   FontSize="20"
+                                   TextColor="White"
+                                   HorizontalOptions="Center"/>
+                            </StackLayout>
+                            
+                                <StackLayout Orientation="Vertical">
+                                    <Frame CornerRadius="30" IsClippedToBounds="True" Margin="0" Padding="0">
+                                        <Image Source="{local:ImageResource Takisnmore.Images.Whitebg.jpg}"
+                                        HorizontalOptions="Start"
+                                        WidthRequest="100"
+                                        HeightRequest="100"/>
+                                        <Image Source="{local:ImageResource Takisnmore.Images.Icons.donuticons.png}"
+                                                WidthRequest="100"
+                                                HeightRequest="100"
+                                                Aspect="AspectFill"
+                                                BackgroundColor="Transparent"/>
+                                    </Frame>
+
+                                    <Label Text="Postres"
+                                   FontSize="20"
+                                   TextColor="White"
+                                   HorizontalOptions="Center"/>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Vertical">
+                                    <Frame CornerRadius="30" IsClippedToBounds="True" Margin="0" Padding="0">
+                                        <Image Source="{local:ImageResource Takisnmore.Images.Whitebg.jpg}"
+                                        HorizontalOptions="Start"
+                                        WidthRequest="100"
+                                        HeightRequest="100"/>
+                                        <Image Source="{local:ImageResource Takisnmore.Images.Icons.coffeeicons.png}"
+                                                WidthRequest="100"
+                                                HeightRequest="100"
+                                                Aspect="AspectFill"
+                                                BackgroundColor="Transparent"/>
+                                    </Frame>
+
+                                    <Label Text="Café"
+                                   FontSize="20"
+                                   TextColor="White"
+                                   HorizontalOptions="Center"/>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Vertical">
+                                    <Grid>
+                                        <Button ImageSource="{local:ImageResource Takisnmore.Images.Whitebg.jpg}"
+                                        HorizontalOptions="Start"
+                                        WidthRequest="100"
+                                        HeightRequest="100"
+                                        CornerRadius="35"/>
+                                        <Button ImageSource="{local:ImageResource Takisnmore.Images.Icons.ricekrispiesicon.jpg}"
+                                                CornerRadius="30"
+                                                WidthRequest="100"
+                                                HeightRequest="100"
+                                                
+                                                BackgroundColor="Transparent"/>
+                                    </Grid>
+
+                                    <Label Text="Dulces"
+                                   FontSize="20"
+                                   TextColor="White"
+                                   HorizontalOptions="Center"/>
+                                </StackLayout>
+                            
+                            </StackLayout>
+                    </ScrollView>
+                    <!--End of The Categories-->
+
+                </StackLayout>
+
+            </Grid>
+            <!--Here starts the Homepage Content-->
+            <Grid Margin="0,-30,0,0" VerticalOptions="FillAndExpand">
+                    <BoxView CornerRadius="30"
+                            BackgroundColor="White"
+                             HeightRequest="1500"/>
+                
+                <!--Here starts the Content Titles & Cards-->
+                    <StackLayout Padding="0,30,0,30"
+                                 Orientation="Vertical"
+                                 x:Name="categoryholder">
+                    </StackLayout>
+                </Grid>
+            
+        </StackLayout>
+        </ScrollView>
+
+        <!--Search bar on the Bottom-->
+        <Grid VerticalOptions="End"
+              HeightRequest="60"
+              Padding="10,0,10,5"
+              Margin="0,0,0,0"
+              BackgroundColor="Transparent">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <BoxView BackgroundColor="Transparent"
+                     CornerRadius="30"
+                     Grid.ColumnSpan="3"/>
+            <BoxView BackgroundColor="#ADADAD"
+                     CornerRadius="20"
+                     Grid.ColumnSpan="2"
+                     Opacity="0.8"/>
+            <Image Source="{local:ImageResource Takisnmore.Images.Icons.UI_Icon_Search.png}"
+                   Aspect="AspectFit"
+                   Margin="15">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="FocusSearchBar"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <local:XEntry Placeholder="Busca Comida"
+                          PlaceholderColor="White"
+                          Grid.Column="1"
+                          Margin="0,0,20,0"
+                          HeightRequest="100"
+                          Keyboard="Text"
+                          HorizontalOptions="Fill"
+                          x:Name="SearchBar"/>
+            <Button BackgroundColor="PaleVioletRed"
+                     CornerRadius="10"
+                     Grid.Column="2"
+                     ImageSource="{local:ImageResource Takisnmore.Images.Icons.UI_Icon_ShoppingBag.png}"/>
+        </Grid>
+        
+        <!--Menu Black Background-->
+        <Button BackgroundColor="#80696969"
+                IsEnabled="False"
+                IsVisible="False"
+                Clicked="ToggleMenu"
+                x:Name="ShadeBG"
+                
+                HorizontalOptions="End"
+                WidthRequest="100"/>
+        <!--Menu-->
+        <Grid x:Name="MenuGrid" TranslationX="-500" BackgroundColor="White">
+            <StackLayout Margin="100,0,0,0">
+                <Grid>
+                    <BoxView BackgroundColor="MediumPurple"
+                             HeightRequest="150"/>
+                    <Label Text="Hola, Franklin!"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           FontSize="30"
+                           TextColor="White"/>
+                </Grid>
+
+                <!--From here on every grid is a menuitem, with an icon and a text. (Add buttons)-->
+                <!--Structure-->
+                <Grid Margin="0, 30, 0, 0"
+                      HeightRequest="60">
+                    <!--2 Columns. One for the icon and one for the text.-->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
+                    <!--Icon-->
+                    <Image Source="{local:ImageResource Takisnmore.Images.Icons.UI_Icon_Home.png}"
+                           Margin="10"/>
+                    <!--Text-->
+                    <Label Text="Inicio" 
+                           FontFamily="{StaticResource BoldFont}"
+                           Grid.Column="1"
+                           HorizontalOptions="Start"
+                           FontSize="20"
+                           VerticalOptions="Center"/>
+                    <!--Button, this goes at the end because it needs to be on top of the other elements.-->
+                    <Button
+                        BackgroundColor="Transparent"
+                        BorderColor="Transparent"
+                        Grid.ColumnSpan="2"
+                        Clicked="ToggleMenu"/>
+                </Grid>
+                <Grid
+                    HeightRequest="60">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="{local:ImageResource Takisnmore.Images.Icons.UI_Icon_Wallet.png}"
+                           Margin="10"/>
+                    <Label Text="Cartera"
+                           FontFamily="{StaticResource RegularFont}"
+                           Grid.Column="1"
+                           FontSize="20"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Center"/>
+                    <Button
+                        BackgroundColor="Transparent"
+                        BorderColor="Transparent"
+                        Grid.ColumnSpan="2"
+                        Clicked="Cartera"/>
+                </Grid>
+                <Grid
+                    HeightRequest="60">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="{local:ImageResource Takisnmore.Images.Icons.UI_Icon_ID.png}"
+                           Margin="10"/>
+                    <Label Text="Perfil" 
+                           FontSize="20"
+                           Grid.Column="1"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Center"/>
+                    <Button
+                        BackgroundColor="Transparent"
+                        BorderColor="Transparent"
+                        Grid.ColumnSpan="2"
+                        Clicked="Perfil"/>
+                </Grid>
+                <Grid
+                    HeightRequest="60">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="{local:ImageResource Takisnmore.Images.Icons.UI_Icon_Location.png}"
+                           Margin="10"/>
+                    <Label Text="Direcciones" 
+                           FontSize="20"
+                           Grid.Column="1"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Center"/>
+                    <Button
+                        BackgroundColor="Transparent"
+                        BorderColor="Transparent"
+                        Grid.ColumnSpan="2"
+                        Clicked="ToggleMenu"/>
+                </Grid>
+                <Grid
+                    HeightRequest="60">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="{local:ImageResource Takisnmore.Images.Icons.UI_Icon_Book.png}"
+                           Margin="10"/>
+                    <Label Text="Pedidos" 
+                           FontSize="20"
+                           Grid.Column="1"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Center"/>
+                    <Button
+                        BackgroundColor="Transparent"
+                        BorderColor="Transparent"
+                        Grid.ColumnSpan="2"
+                        Clicked="ToggleMenu"/>
+                </Grid>
+                <Grid
+                    HeightRequest="60">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="{local:ImageResource Takisnmore.Images.Icons.UI_Icon_Community.png}"
+                           Margin="10"/>
+                    <Label Text="Amigos" 
+                           FontSize="20"
+                           Grid.Column="1"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Center"/>
+                    <Button
+                        BackgroundColor="Transparent"
+                        BorderColor="Transparent"
+                        Grid.ColumnSpan="2"
+                        Clicked="ToggleMenu"/>
+                </Grid>
+                <Grid
+                    HeightRequest="60">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="{local:ImageResource Takisnmore.Images.Icons.UI_Icon_StarEmpty.png}"
+                           Margin="10"/>
+                    <Label Text="Favoritos" 
+                           FontSize="20"
+                           Grid.Column="1"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Center"/>
+                    <Button
+                        BackgroundColor="Transparent"
+                        BorderColor="Transparent"
+                        Grid.ColumnSpan="2"
+                        Clicked="Favoritos"/>
+                </Grid>
+            </StackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>
