@@ -61,9 +61,10 @@ namespace Takisnmore.Pages
             //Make all the containers with their stuff inside
 
             //get all info in strings with client command
-            string categories = CustomerClient.Instance.GetHomePageInfo("HomePageCategories");
+            string categoriesraw = CustomerClient.Instance.GetHomePageInfo("HomePageCategories");
             //Divide them into string arrays
-            string[] Categories = categories.Split('/');
+            string[] Categories = categoriesraw.Split('/');
+            
 
             for (int x = 0; x < Categories.Length; x++)
             {
@@ -75,7 +76,7 @@ namespace Takisnmore.Pages
                                 {
                                     Children =
                                     {
-                                        new Label { Text = Categories[x], FontAttributes = FontAttributes.Bold, FontSize = 25, Margin = new Thickness(30,0,0,0)},
+                                        new Label { Text = Categories[x].Split(':')[1], FontAttributes = FontAttributes.Bold, FontSize = 25, Margin = new Thickness(30,0,0,0)},
                                         new Label { Text = "Ver Todos", FontSize = 18, HorizontalOptions = LayoutOptions.End, VerticalOptions = LayoutOptions.Center,
                                             Margin = new Thickness(0,0,30,0), TextColor = Color.PaleVioletRed } //Add tapgesture recognizer.
                                     }
@@ -107,7 +108,7 @@ namespace Takisnmore.Pages
                 categorycontainer.Children.Add(scrollView);
 
                 //Made the category grid, now add the items.
-                string items = CustomerClient.Instance.GetHomePageInfo("CategoryItems-" + Categories[x]);
+                string items = CustomerClient.Instance.GetHomePageInfo("CategoryItems-" + Categories[x].Split(':')[0]);
                 string[] Items = items.Split('/');
 
                 for (int z = 0; z < Items.Length; z++)
