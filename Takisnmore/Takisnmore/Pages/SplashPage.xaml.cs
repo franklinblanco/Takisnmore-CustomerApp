@@ -40,8 +40,6 @@ namespace Takisnmore.Pages
 
                 string userdatapath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "UserData.txt");
                 //check if there is authdata first, then auth if there is, if there isn't then make it.-
-                File.Delete(userdatapath);
-                CacheManager.Instance.DeleteFiles();
                 if (File.Exists(userdatapath))
                 {
                     string phonenumber = File.ReadAllText(userdatapath);
