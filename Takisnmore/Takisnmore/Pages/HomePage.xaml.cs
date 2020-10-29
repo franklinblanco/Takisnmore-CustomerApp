@@ -219,7 +219,7 @@ namespace Takisnmore.Pages
                     };
                     Label descriptionpricing = new Label
                     {
-                        Text = itemproperties[1],
+                        Text = "RD$" + itemproperties[1],
                         TextColor = Color.Black,
                         FontAttributes = FontAttributes.Bold,
                         FontSize = 18,
