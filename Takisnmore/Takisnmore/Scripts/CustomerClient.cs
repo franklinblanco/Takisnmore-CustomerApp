@@ -119,7 +119,7 @@ namespace Takisnmore.Scripts
         }
         public byte[] GetMedia(string id)
         {
-            Console.WriteLine("Getting media.");
+            Console.WriteLine("Getting media. ID: " + id);
             string request = "1102-Media-" + id;
             SendMessage(request);
             byte[] datatask = ReceiveData();
