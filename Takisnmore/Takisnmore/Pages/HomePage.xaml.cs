@@ -114,6 +114,7 @@ namespace Takisnmore.Pages
                 for (int z = 0; z < Items.Length; z++)
                 {
                     string[] itemproperties = Items[z].Split(':');
+                    string[] itemmediaids = itemproperties[4].Split(',');
 
                     //UI Elements for Product display
                     Frame brandlogoframe = new Frame
@@ -250,7 +251,7 @@ namespace Takisnmore.Pages
                     TapGestureRecognizer gotoitemmenu = new TapGestureRecognizer();
                     gotoitemmenu.Tapped += (s, e) =>
                     {
-                        Navigation.PushAsync(new ItemView(new Item {ItemId = "", Price = itemproperties[1], Title=itemproperties[0], MediaIds = new string[] { "IJP000001" }, Description = "Plato exquisito.", StoreName = "Takisnmore" }));
+                        Navigation.PushAsync(new ItemView(new Item {ItemId = itemproperties[6], Price = itemproperties[1], Title=itemproperties[0], MediaIds = itemmediaids, Description = itemproperties[2], StoreName = itemproperties[3] }));
                         //Open the Xaml Page with the product information and the addtocart/buy button.
                     };
 
