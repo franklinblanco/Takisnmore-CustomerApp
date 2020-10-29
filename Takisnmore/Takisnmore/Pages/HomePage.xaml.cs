@@ -178,7 +178,7 @@ namespace Takisnmore.Pages
 
                     Label descriptiontitle = new Label
                     {
-                        Text = "Roasted beef",
+                        Text = itemproperties[0],
                         VerticalOptions = LayoutOptions.Center,
                         VerticalTextAlignment = TextAlignment.Center,
                         HorizontalOptions = LayoutOptions.Start,
@@ -192,7 +192,7 @@ namespace Takisnmore.Pages
 
                     Label descriptionbrandnamelabel = new Label
                     {
-                        Text = "by MeatLiquor",
+                        Text = itemproperties[3],
                         FontSize = 14,
                         VerticalOptions = LayoutOptions.End,
                         VerticalTextAlignment = TextAlignment.End
@@ -200,7 +200,7 @@ namespace Takisnmore.Pages
 
                     Label descriptiontext = new Label
                     {
-                        Text = "Churrasco 11oz, acompañado de huevos fritos, guandules, pepinos cocinados, y ensalada.",
+                        Text = itemproperties[2],
                         FontSize = 13,
                         TextColor = Color.Black,
                         MaxLines = 6,
@@ -218,7 +218,7 @@ namespace Takisnmore.Pages
                     };
                     Label descriptionpricing = new Label
                     {
-                        Text = "RD$160",
+                        Text = itemproperties[1],
                         TextColor = Color.Black,
                         FontAttributes = FontAttributes.Bold,
                         FontSize = 18,
@@ -292,20 +292,20 @@ namespace Takisnmore.Pages
                     descriptiongrid.IsVisible = false;
                     descriptiongrid.IsEnabled = false;
                     //Divide the item string and put the info in the respective UI elements
-                    if (itemproperties.Length > 2)
+                    if (itemproperties.Length > 4)
 
                     {
-                        if (itemproperties[2].Contains('I'))
+                        if (itemproperties[4].Contains('I'))
                         {
-                            productImage.Source = CacheManager.Instance.GetImageSource(itemproperties[2]);
+                            productImage.Source = CacheManager.Instance.GetImageSource(itemproperties[4]);
                             productimageframe.Content = productImage;
                         }
                     }
-                    if (itemproperties.Length > 3)
+                    if (itemproperties.Length > 5)
                     {
-                        brandlogoimg.Source = CacheManager.Instance.GetImageSource(itemproperties[3]);
+                        brandlogoimg.Source = CacheManager.Instance.GetImageSource(itemproperties[5]);
                         brandlogoframe.Content = brandlogoimg;
-                        descriptionbrandlogo.Content = new Image { Source = CacheManager.Instance.GetImageSource(itemproperties[3]), Aspect = Aspect.AspectFill };
+                        descriptionbrandlogo.Content = new Image { Source = CacheManager.Instance.GetImageSource(itemproperties[5]), Aspect = Aspect.AspectFill };
                     }
                     
                 }
