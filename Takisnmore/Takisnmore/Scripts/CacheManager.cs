@@ -102,40 +102,22 @@ namespace Takisnmore.Scripts
         #region Extension handling
         private string GetExtension(string id)
         {
-
-            if (id == "IJP000001")
+            char[] dividedfilename = id.ToCharArray();
+            string format = string.Concat(dividedfilename[1], dividedfilename[2]);
+            string extension = "";
+            switch (format)
             {
-                return ".jpg";
+                case "JP":
+                    extension = ".jpg";
+                    break;
+                case "JE":
+                    extension = ".jpeg";
+                    break;
+                case "PN":
+                    extension = ".png";
+                    break;
             }
-            else if (id == "IJP000002")
-            {
-                return ".jpg";
-            }
-            else if (id == "IJE000003")
-            {
-                return ".jpeg";
-            }
-            else if (id == "LJP000001")
-            {
-                return ".jpg";
-            }
-            else if (id == "LPN000003")
-            {
-                return ".png";
-            }
-            else if (id == "LJE000001")
-            {
-                return ".jpeg";
-            }
-            else if (id == "IJP000003")
-            {
-                return ".jpg";
-            }
-            else
-            {
-                Console.WriteLine("No extension found for the id.");
-                return "";
-            }
+            return extension;
         }
         #endregion
     }

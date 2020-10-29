@@ -113,8 +113,6 @@ namespace Takisnmore.Pages
 
                 for (int z = 0; z < Items.Length; z++)
                 {
-
-
                     string[] itemproperties = Items[z].Split(':');
 
                     //UI Elements for Product display
