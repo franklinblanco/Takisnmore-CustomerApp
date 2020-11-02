@@ -62,6 +62,10 @@ namespace Takisnmore.Pages
 
             //get all info in strings with client command
             string categoriesraw = CustomerClient.Instance.GetHomePageInfo("HomePageCategories");
+
+            //
+            string[] allsections = CustomerClient.Instance.GetSections();
+            SectionButton.Text = allsections[0];
             //Divide them into string arrays
             string[] Categories = categoriesraw.Split('/');
             
