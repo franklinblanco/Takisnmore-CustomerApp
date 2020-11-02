@@ -117,6 +117,13 @@ namespace Takisnmore.Scripts
             SendMessage(request);
             return ReceiveMessage();
         }
+        public string[] GetSections()
+        {
+            string request = "1102-Sections";
+            SendMessage(request);
+            string[] = ReceiveMessage().Split('/');
+            return null;
+        }
         public byte[] GetMedia(string id)
         {
             Console.WriteLine("Getting media. ID: " + id);

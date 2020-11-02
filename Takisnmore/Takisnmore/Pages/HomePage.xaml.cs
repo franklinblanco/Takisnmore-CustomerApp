@@ -356,7 +356,9 @@ namespace Takisnmore.Pages
         }
         private async void ChooseShop(object sender, EventArgs e)
         {
+            string[] allsections = CustomerClient.Instance.GetSections();
             string selectedShop = await DisplayActionSheet("¿Que deseas?", "Volver", null, "Comida", "Tiendas");
+            SectionButton.Text = selectedShop;
             //Change the store depending on this
         }
         private void SeeItem(object sender, EventArgs e)

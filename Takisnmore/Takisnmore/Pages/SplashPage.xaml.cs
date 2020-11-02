@@ -37,7 +37,6 @@ namespace Takisnmore.Pages
                 tryagainbtn.IsEnabled = false;
                 tryagainbtn.IsVisible = false;
 
-
                 string userdatapath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "UserData.txt");
                 //check if there is authdata first, then auth if there is, if there isn't then make it.-
                 if (File.Exists(userdatapath))
