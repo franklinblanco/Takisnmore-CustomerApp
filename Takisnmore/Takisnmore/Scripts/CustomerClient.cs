@@ -121,8 +121,8 @@ namespace Takisnmore.Scripts
         {
             string request = "1102-Sections";
             SendMessage(request);
-            string[] = ReceiveMessage().Split('/');
-            return null;
+            string[] AllSections = ReceiveMessage().Split('/');
+            return AllSections;
         }
         public byte[] GetMedia(string id)
         {
