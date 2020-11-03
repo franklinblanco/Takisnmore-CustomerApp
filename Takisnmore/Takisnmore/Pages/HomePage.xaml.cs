@@ -38,7 +38,7 @@ namespace Takisnmore.Pages
             //Load all the content in the homepage
             LoadSections();
             SectionButton.Text = LoadSections()[SelectedSection - 1];
-
+            LoadCategories(SelectedSection.ToString(), 1);
         }
         public string[] LoadSections()
         {
@@ -51,9 +51,10 @@ namespace Takisnmore.Pages
             //get all info in strings with client command
             string categoriesraw = CustomerClient.Instance.GetPageInfo("Categories-" + sectionid + "-" + pagenumber.ToString());
 
+            if (categoriesraw == "1305") { return; }
+
             //Divide them into string arrays
             string[] Categories = categoriesraw.Split('/');
-
 
             for (int x = 0; x < Categories.Length; x++)
             {
@@ -379,9 +380,9 @@ namespace Takisnmore.Pages
         {
             string[] allsections = CustomerClient.Instance.GetSections();
             string selectedShop = await DisplayActionSheet("¿Que deseas?", "Volver", null, allsections);
-            SectionButton.Text = selectedShop;
-            SelectedSection = Array.IndexOf(allsections, selectedShop);
             if (selectedShop == null) { return; }
+            SectionButton.Text = selectedShop;
+            SelectedSection = Array.IndexOf(allsections, selectedShop) + 1;
             LoadPageContent();
             //Change the store depending on this
         }
