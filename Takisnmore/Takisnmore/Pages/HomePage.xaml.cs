@@ -26,18 +26,18 @@ namespace Takisnmore.Pages
         {
             
             InitializeComponent();
-            Load();
+            LoadPageContent();
         }
         protected override bool OnBackButtonPressed()
         {
             return true;
         }
         #endregion
-        public void Load()
+        public void LoadPageContent()
         {
             //Load all the content in the homepage
             LoadSections();
-            SectionButton.Text = LoadSections()[0];
+            SectionButton.Text = LoadSections()[SelectedSection - 1];
 
         }
         public string[] LoadSections()
@@ -375,11 +375,14 @@ namespace Takisnmore.Pages
         {
 
         }
-        private async void ChooseShop(object sender, EventArgs e)
+        private async void ChooseShop(object sender, EventArgs e) //Change this method name to ChooseSection
         {
             string[] allsections = CustomerClient.Instance.GetSections();
             string selectedShop = await DisplayActionSheet("¿Que deseas?", "Volver", null, allsections);
             SectionButton.Text = selectedShop;
+            SelectedSection = Array.IndexOf(allsections, selectedShop);
+            if (selectedShop == null) { return; }
+            LoadPageContent();
             //Change the store depending on this
         }
         private void SeeItem(object sender, EventArgs e)
