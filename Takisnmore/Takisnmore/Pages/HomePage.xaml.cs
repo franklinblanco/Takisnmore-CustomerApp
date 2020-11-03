@@ -20,55 +20,39 @@ namespace Takisnmore.Pages
         
         private bool isMenuOpen = true;
         public IList<Item> Items { get; private set; }
+
+        #region Main Method
         public HomePage()
         {
             
             InitializeComponent();
-            //CacheManager.Instance.DeleteFiles();
-            //Load images/videos
             Load();
         }
         protected override bool OnBackButtonPressed()
         {
             return true;
         }
-        private async void ToggleMenu(object sender, EventArgs e)
-        {
-            //Method to open & close the Side Menu.
-            if (isMenuOpen)
-            {
-                MenuGrid.IsVisible = true;
-                MenuGrid.IsEnabled = true;
-                ShadeBG.IsEnabled = true;
-                ShadeBG.IsVisible = true;
-                await MenuGrid.TranslateTo(MenuGrid.X - 100, MenuGrid.Y, 200);
-            }
-            else
-            {
-                ShadeBG.IsEnabled = false;
-                ShadeBG.IsVisible = false;
-                await MenuGrid.TranslateTo(MenuGrid.X - Width, MenuGrid.Y, 100);
-                MenuGrid.IsVisible = false;
-                MenuGrid.IsEnabled = false;
-            }
-
-            isMenuOpen = !isMenuOpen;
-            
-        }
+        #endregion
         public void Load()
         {
             //Load all the content in the homepage
-            //Make all the containers with their stuff inside
-
+            LoadSections();
+            LoadCategories();
+        }
+        public void LoadSections()
+        {
+            string[] sections = CustomerClient.Instance.GetSections();
+            SectionButton.Text = sections[0];
+        }
+        #region Category loading
+        public void LoadCategories(string sectionid, int pagenumber)
+        {
             //get all info in strings with client command
-            string categoriesraw = CustomerClient.Instance.GetHomePageInfo("HomePageCategories");
+            string categoriesraw = CustomerClient.Instance.GetSectionCategories("Categories-" + sectionid + "-" + pagenumber.ToString());
 
-            //
-            string[] allsections = CustomerClient.Instance.GetSections();
-            SectionButton.Text = allsections[0];
             //Divide them into string arrays
             string[] Categories = categoriesraw.Split('/');
-            
+
 
             for (int x = 0; x < Categories.Length; x++)
             {
@@ -101,7 +85,6 @@ namespace Takisnmore.Pages
                     Padding = new Thickness(20, 10, 20, 0),
                     Spacing = 20
                 };
-                
 
                 ScrollView scrollView = new ScrollView
                 {
@@ -135,7 +118,8 @@ namespace Takisnmore.Pages
                         Padding = new Thickness(0)
                     };
 
-                    Grid descriptiongrid = new Grid {
+                    Grid descriptiongrid = new Grid
+                    {
                         RowDefinitions =
                         {
                             new RowDefinition { Height = new GridLength(3.5, GridUnitType.Star) },
@@ -189,7 +173,7 @@ namespace Takisnmore.Pages
                         HorizontalOptions = LayoutOptions.Start,
                         HorizontalTextAlignment = TextAlignment.Start,
                         FontAttributes = FontAttributes.Bold,
-                        Margin = new Thickness(0,10,0,0),
+                        Margin = new Thickness(0, 10, 0, 0),
                         FontSize = 23,
                         TextColor = Color.Black,
                         MaxLines = 1
@@ -210,7 +194,7 @@ namespace Takisnmore.Pages
                         TextColor = Color.Black,
                         MaxLines = 6,
                         VerticalTextAlignment = TextAlignment.Center,
-                        Margin = new Thickness(0,0,18,0)
+                        Margin = new Thickness(0, 0, 18, 0)
                     };
 
                     Label descriptionrating = new Label
@@ -255,7 +239,7 @@ namespace Takisnmore.Pages
                     TapGestureRecognizer gotoitemmenu = new TapGestureRecognizer();
                     gotoitemmenu.Tapped += (s, e) =>
                     {
-                        Navigation.PushAsync(new ItemView(new Item {ItemId = itemproperties[6], Price = itemproperties[1], Title=itemproperties[0], MediaIds = itemmediaids, Description = itemproperties[2], StoreName = itemproperties[3] }));
+                        Navigation.PushAsync(new ItemView(new Item { ItemId = itemproperties[6], Price = itemproperties[1], Title = itemproperties[0], MediaIds = itemmediaids, Description = itemproperties[2], StoreName = itemproperties[3] }));
                         //Open the Xaml Page with the product information and the addtocart/buy button.
                     };
 
@@ -312,14 +296,42 @@ namespace Takisnmore.Pages
                         brandlogoframe.Content = brandlogoimg;
                         descriptionbrandlogo.Content = new Image { Source = CacheManager.Instance.GetImageSource(itemproperties[5]), Aspect = Aspect.AspectFill };
                     }
-                    
                 }
             }
-
-            //for loop each element of the array and make them into a grid each, then add them into the children of the containers
         }
-        //From here on the methods will be Exclusively for each of the Menu button Actions
+        #endregion
+        public void LoadProducts()
+        {
 
+        }
+        #region Menu Stuff
+
+        #region Menu button methods
+        private async void ToggleMenu(object sender, EventArgs e)
+        {
+            //Method to open & close the Side Menu.
+            if (isMenuOpen)
+            {
+                MenuGrid.IsVisible = true;
+                MenuGrid.IsEnabled = true;
+                ShadeBG.IsEnabled = true;
+                ShadeBG.IsVisible = true;
+                await MenuGrid.TranslateTo(MenuGrid.X - 100, MenuGrid.Y, 200);
+            }
+            else
+            {
+                ShadeBG.IsEnabled = false;
+                ShadeBG.IsVisible = false;
+                await MenuGrid.TranslateTo(MenuGrid.X - Width, MenuGrid.Y, 100);
+                MenuGrid.IsVisible = false;
+                MenuGrid.IsEnabled = false;
+            }
+
+            isMenuOpen = !isMenuOpen;
+
+        }
+
+        
         private void Cartera(object sender, EventArgs e)
         {
             Navigation.PushAsync(new Cartera());
@@ -350,6 +362,10 @@ namespace Takisnmore.Pages
         private void Favoritos(object sender, EventArgs e)
         {
         }
+        #endregion
+        #endregion
+
+        #region General Button Methods
         private void FocusSearchBar(object sender, EventArgs e)
         {
             SearchBar.Focus();
@@ -390,5 +406,6 @@ namespace Takisnmore.Pages
             
             //Navigation.PushAsync(new ItemView());
         }
+        #endregion
     }
 }
