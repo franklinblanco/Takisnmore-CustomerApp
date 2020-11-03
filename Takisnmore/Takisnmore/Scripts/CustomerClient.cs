@@ -111,7 +111,7 @@ namespace Takisnmore.Scripts
             }
             return false;
         }
-        public string GetSectionCategories(/*should give the user id so that you can show a personalized one each time*/string what)
+        public string GetPageInfo(/*should give the user id so that you can show a personalized one each time*/string what)
         {
             string request = "1102-" + what;
             SendMessage(request);

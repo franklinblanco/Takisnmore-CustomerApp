@@ -17,7 +17,7 @@ namespace Takisnmore.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomePage : ContentPage
     {
-        
+        int SelectedSection = 1;
         private bool isMenuOpen = true;
         public IList<Item> Items { get; private set; }
 
@@ -37,18 +37,19 @@ namespace Takisnmore.Pages
         {
             //Load all the content in the homepage
             LoadSections();
-            LoadCategories();
+            SectionButton.Text = LoadSections()[0];
+
         }
-        public void LoadSections()
+        public string[] LoadSections()
         {
             string[] sections = CustomerClient.Instance.GetSections();
-            SectionButton.Text = sections[0];
+            return sections;
         }
         #region Category loading
         public void LoadCategories(string sectionid, int pagenumber)
         {
             //get all info in strings with client command
-            string categoriesraw = CustomerClient.Instance.GetSectionCategories("Categories-" + sectionid + "-" + pagenumber.ToString());
+            string categoriesraw = CustomerClient.Instance.GetPageInfo("Categories-" + sectionid + "-" + pagenumber.ToString());
 
             //Divide them into string arrays
             string[] Categories = categoriesraw.Split('/');
@@ -95,7 +96,7 @@ namespace Takisnmore.Pages
                 categorycontainer.Children.Add(scrollView);
 
                 //Made the category grid, now add the items.
-                string items = CustomerClient.Instance.GetHomePageInfo("CategoryItems-" + Categories[x].Split(':')[0]);
+                string items = CustomerClient.Instance.GetPageInfo("CategoryItems-" + Categories[x].Split(':')[0]);
                 string[] Items = items.Split('/');
 
                 for (int z = 0; z < Items.Length; z++)
