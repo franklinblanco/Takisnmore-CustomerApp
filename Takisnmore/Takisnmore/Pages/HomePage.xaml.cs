@@ -45,20 +45,37 @@ namespace Takisnmore.Pages
             string[] sections = CustomerClient.Instance.GetSections();
             return sections;
         }
+
+        StackLayout categorycontainer;
+
         #region Category loading
         public void LoadCategories(string sectionid, int pagenumber)
         {
             //get all info in strings with client command
             string categoriesraw = CustomerClient.Instance.GetPageInfo("Categories-" + sectionid + "-" + pagenumber.ToString());
-
-            if (categoriesraw == "1305") { return; }
+            if (categoryholder.Children.Count > 0) { categoryholder.Children.Clear(); } //Clear the content
+            if (categoriesraw == "1305") //if no categories just don't draw categories.
+            {
+                categorycontainer = new StackLayout
+                {
+                    Children =
+                    {
+                        new Label { Text="Sorry, but this Section has no Categories! Come back later...",
+                            FontAttributes=FontAttributes.Bold, FontSize=30, Margin = new Thickness(20),
+                            HorizontalTextAlignment=TextAlignment.Center, VerticalTextAlignment=TextAlignment.Center,
+                            TextColor=Color.LightGray}
+                    }
+                };
+                categoryholder.Children.Add(categorycontainer);
+                return; 
+            } 
 
             //Divide them into string arrays
             string[] Categories = categoriesraw.Split('/');
 
             for (int x = 0; x < Categories.Length; x++)
             {
-                StackLayout categorycontainer = new StackLayout
+                categorycontainer = new StackLayout
                 {
                     Children =
                             {
