@@ -47,11 +47,13 @@ namespace Takisnmore.Pages
         }
 
         StackLayout categorycontainer;
+        ScrollView ProductsScrollView;
+        StackLayout ItemsContainer;
 
         #region Category loading
         public void LoadCategories(string sectionid, int pagenumber)
         {
-            //get all info in strings with client command
+            SearchableCategories.Content = null; //Erase the searchable categories
             string categoriesraw = CustomerClient.Instance.GetPageInfo("Categories-" + sectionid + "-" + pagenumber.ToString());
             if (categoryholder.Children.Count > 0) { categoryholder.Children.Clear(); } //Clear the content
             if (categoriesraw == "1305") //if no categories just don't draw categories.
@@ -67,8 +69,46 @@ namespace Takisnmore.Pages
                     }
                 };
                 categoryholder.Children.Add(categorycontainer);
-                return; 
-            } 
+                return;
+            }
+
+            string searchablecategoriesraw = CustomerClient.Instance.GetPageInfo("Categories-" + sectionid + "-" + 2);
+            string[] searchablecategories = searchablecategoriesraw.Split('/');
+            if (searchablecategories.Length > 0) 
+            {
+                StackLayout searchablecategoriesstacklayout = new StackLayout { Orientation = StackOrientation.Horizontal, Spacing = 20 };
+                #region UI for searchable categories
+                foreach (string cat in searchablecategories)
+                {
+                    string[] catvalues = cat.Split(':');
+                    //Declaration
+                    StackLayout searchablecatsunit = new StackLayout { Orientation = StackOrientation.Vertical };
+                    Frame CategoryThumbnailFrame = new Frame { CornerRadius = 30, IsClippedToBounds = true, Margin = new Thickness(0), Padding = new Thickness(0) };
+                    Image CategoryThumbnailImg = new Image { WidthRequest = 100, HeightRequest = 100, Aspect = Aspect.AspectFill, BackgroundColor = Color.Transparent };
+                    Label CategoryTitle = new Label { FontSize = 20, TextColor = Color.White, HorizontalOptions = LayoutOptions.Center };
+
+                    TapGestureRecognizer gotocategory = new TapGestureRecognizer();
+                    gotocategory.Tapped += (s, e) =>
+                    {
+                        //What will be done when user taps a category
+                        Navigation.PushAsync(new CategoryView());
+                    };
+
+                    //Assignment of values
+                    CategoryTitle.Text = catvalues[1];
+                    CategoryThumbnailImg.Source = CacheManager.Instance.GetImageSource(catvalues[2]);
+                    CategoryThumbnailImg.GestureRecognizers.Add(gotocategory);
+                    //Childing & Parenting
+                    CategoryThumbnailFrame.Content = CategoryThumbnailImg;
+                    searchablecatsunit.Children.Add(CategoryThumbnailFrame);
+                    searchablecatsunit.Children.Add(CategoryTitle);
+                    searchablecategoriesstacklayout.Children.Add(searchablecatsunit);
+                }
+                SearchableCategories.Content = searchablecategoriesstacklayout;
+                #endregion
+            }
+
+
 
             //Divide them into string arrays
             string[] Categories = categoriesraw.Split('/');
@@ -98,20 +138,20 @@ namespace Takisnmore.Pages
                 //Make a videomanager
                 //Make an if statement that decides what goes inside the frame
 
-                StackLayout ItemsContainer = new StackLayout
+                ItemsContainer = new StackLayout
                 {
                     Orientation = StackOrientation.Horizontal,
                     Padding = new Thickness(20, 10, 20, 0),
                     Spacing = 20
                 };
 
-                ScrollView scrollView = new ScrollView
+                ProductsScrollView = new ScrollView
                 {
                     Orientation = ScrollOrientation.Horizontal,
                     HorizontalScrollBarVisibility = ScrollBarVisibility.Never,
                     Content = ItemsContainer
                 };
-                categorycontainer.Children.Add(scrollView);
+                categorycontainer.Children.Add(ProductsScrollView);
 
                 //Made the category grid, now add the items.
                 string items = CustomerClient.Instance.GetPageInfo("CategoryItems-" + Categories[x].Split(':')[0]);

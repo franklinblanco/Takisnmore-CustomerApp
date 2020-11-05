@@ -37,20 +37,9 @@ namespace Takisnmore.Scripts
         }
         public void DeleteFiles()
         {
-            File.Delete(tmp + "IJP000001.jpg");
-            File.Delete(tmp + "IJP000002.jpg");
-            File.Delete(tmp + "IJE000003.jpeg");
-            File.Delete(tmp + "LJE000001.jpeg");
-
-            File.Delete(tmp + "IJP000001");
-            File.Delete(tmp + "IJP000002");
-            File.Delete(tmp + "IJE000003");
-            File.Delete(tmp + "LJE000001");
-
-            File.Delete(tmp + "IJP000001jpg");
-            File.Delete(tmp + "IJP000002jpg");
-            File.Delete(tmp + "IJE000003jpeg");
-            File.Delete(tmp + "LJE000001jpeg");
+            File.Delete(tmp + "CPN000001.png");
+            File.Delete(tmp + "CPN000002.png");
+            File.Delete(tmp + "CPN000003.png");
         }
         public string GetVideoSource(string videoid)
         {

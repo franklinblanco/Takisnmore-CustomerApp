@@ -71,87 +71,11 @@
                         </Image>
                     </Grid>
                     <!--Scrollview containing the Categories-->
-                    <ScrollView Orientation="Horizontal"
+                        <ScrollView Orientation="Horizontal"
                                 HorizontalScrollBarVisibility="Never"
-                                HeightRequest="130">
-                        <StackLayout Orientation="Horizontal"
-                                     Spacing="20">
-                            <!--Default Category Template-->
-                            <StackLayout Orientation="Vertical">
-                                    <Frame CornerRadius="30" IsClippedToBounds="True" Margin="0" Padding="0">
-                                        <Image Source="{local:ImageResource Takisnmore.Images.Icons.fastfoodicons.png}"
-                                                WidthRequest="100"
-                                                HeightRequest="100"
-                                                Aspect="AspectFill"
-                                                BackgroundColor="Transparent"/>
-                                    </Frame>
-                                    <Label Text="Comida"
-                                   FontSize="20"
-                                   TextColor="White"
-                                   HorizontalOptions="Center"/>
-                            </StackLayout>
-                            
-                                <StackLayout Orientation="Vertical">
-                                    <Frame CornerRadius="30" IsClippedToBounds="True" Margin="0" Padding="0">
-                                        <Image Source="{local:ImageResource Takisnmore.Images.Whitebg.jpg}"
-                                        HorizontalOptions="Start"
-                                        WidthRequest="100"
-                                        HeightRequest="100"/>
-                                        <Image Source="{local:ImageResource Takisnmore.Images.Icons.donuticons.png}"
-                                                WidthRequest="100"
-                                                HeightRequest="100"
-                                                Aspect="AspectFill"
-                                                BackgroundColor="Transparent"/>
-                                    </Frame>
-
-                                    <Label Text="Postres"
-                                   FontSize="20"
-                                   TextColor="White"
-                                   HorizontalOptions="Center"/>
-                                </StackLayout>
-
-                                <StackLayout Orientation="Vertical">
-                                    <Frame CornerRadius="30" IsClippedToBounds="True" Margin="0" Padding="0">
-                                        <Image Source="{local:ImageResource Takisnmore.Images.Whitebg.jpg}"
-                                        HorizontalOptions="Start"
-                                        WidthRequest="100"
-                                        HeightRequest="100"/>
-                                        <Image Source="{local:ImageResource Takisnmore.Images.Icons.coffeeicons.png}"
-                                                WidthRequest="100"
-                                                HeightRequest="100"
-                                                Aspect="AspectFill"
-                                                BackgroundColor="Transparent"/>
-                                    </Frame>
-
-                                    <Label Text="Café"
-                                   FontSize="20"
-                                   TextColor="White"
-                                   HorizontalOptions="Center"/>
-                                </StackLayout>
-
-                                <StackLayout Orientation="Vertical">
-                                    <Grid>
-                                        <Button ImageSource="{local:ImageResource Takisnmore.Images.Whitebg.jpg}"
-                                        HorizontalOptions="Start"
-                                        WidthRequest="100"
-                                        HeightRequest="100"
-                                        CornerRadius="35"/>
-                                        <Button ImageSource="{local:ImageResource Takisnmore.Images.Icons.ricekrispiesicon.jpg}"
-                                                CornerRadius="30"
-                                                WidthRequest="100"
-                                                HeightRequest="100"
-                                                
-                                                BackgroundColor="Transparent"/>
-                                    </Grid>
-
-                                    <Label Text="Dulces"
-                                   FontSize="20"
-                                   TextColor="White"
-                                   HorizontalOptions="Center"/>
-                                </StackLayout>
-                            
-                            </StackLayout>
-                    </ScrollView>
+                                HeightRequest="130"
+                                x:Name="SearchableCategories">
+                        </ScrollView>
                     <!--End of The Categories-->
 
                 </StackLayout>
