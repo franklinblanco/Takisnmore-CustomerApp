@@ -14,25 +14,14 @@
     <None Remove="Fonts\OpenSans-Bold.ttf" />
     <None Remove="Fonts\OpenSans-BoldItalic.ttf" />
     <None Remove="Fonts\OpenSans-SemiBoldItalic.ttf" />
-    <None Remove="Images\Icons\coffeecupicon.png" />
-    <None Remove="Images\Icons\coffeeicons.png" />
     <None Remove="Images\Icons\Default\profilepicturedefault.jpg" />
-    <None Remove="Images\Icons\donuticons.png" />
-    <None Remove="Images\Icons\fastfoodicons.png" />
-    <None Remove="Images\Icons\fireicon.png" />
-    <None Remove="Images\Icons\fireiconsmall.png" />
     <None Remove="Images\Icons\homeicon.png" />
     <None Remove="Images\Icons\HotChipsIcon.jpg" />
-    <None Remove="Images\Icons\HotChipsIcon.png" />
-    <None Remove="Images\Icons\jollyranchericon.png" />
-    <None Remove="Images\Icons\ricekrispiesicon.jpg" />
-    <None Remove="Images\Icons\Sourpatchicon.png" />
-    <None Remove="Images\Icons\takisbagicon.png" />
-    <None Remove="Images\Icons\Takisicon.png" />
     <None Remove="Images\Icons\UI_Icon_Book.png" />
     <None Remove="Images\Icons\UI_Icon_CalendarConfirm.png" />
     <None Remove="Images\Icons\UI_Icon_CalendarMonth.png" />
     <None Remove="Images\Icons\UI_Icon_Community.png" />
+    <None Remove="Images\Icons\UI_Icon_Filter.png" />
     <None Remove="Images\Icons\UI_Icon_Home.png" />
     <None Remove="Images\Icons\UI_Icon_ID.png" />
     <None Remove="Images\Icons\UI_Icon_List.png" />
@@ -44,8 +33,7 @@
     <None Remove="Images\Icons\UI_Icon_ShoppingBag.png" />
     <None Remove="Images\Icons\UI_Icon_StarEmpty.png" />
     <None Remove="Images\Icons\UI_Icon_Wallet.png" />
-    <None Remove="Images\Images\takisbythepool.jpg" />
-    <None Remove="Images\Images\takisfallingillustrated.jpg" />
+    <None Remove="Images\RawIcons\UI_Icon_Filter.png" />
     <None Remove="Images\RawIcons\UI_Icon_Home.png" />
     <None Remove="Images\takisnmorelogo.jpeg" />
     <None Remove="Images\takisnmorelogotrans.png" />
@@ -63,24 +51,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Images\Icons\coffeeicons.png" />
-    <EmbeddedResource Include="Images\Icons\donuticons.png" />
-    <EmbeddedResource Include="Images\Icons\fastfoodicons.png" />
-    <EmbeddedResource Include="Images\Icons\coffeecupicon.png" />
     <EmbeddedResource Include="Images\Icons\Default\profilepicturedefault.jpg" />
-    <EmbeddedResource Include="Images\Icons\fireicon.png" />
-    <EmbeddedResource Include="Images\Icons\fireiconsmall.png" />
-    <EmbeddedResource Include="Images\Icons\HotChipsIcon.png" />
-    <EmbeddedResource Include="Images\Icons\jollyranchericon.png" />
-    <EmbeddedResource Include="Images\Icons\ricekrispiesicon.jpg" />
-    <EmbeddedResource Include="Images\Icons\Sourpatchicon.png" />
-    <EmbeddedResource Include="Images\Icons\takisbagicon.png" />
-    <EmbeddedResource Include="Images\Icons\Takisicon.png" />
     <EmbeddedResource Include="Images\Icons\UI_Icon_Book.png" />
     <EmbeddedResource Include="Images\Icons\UI_Icon_CalendarConfirm.png" />
     <EmbeddedResource Include="Images\Icons\UI_Icon_CalendarMonth.png" />
     <EmbeddedResource Include="Images\Icons\UI_Icon_Community.png" />
     <EmbeddedResource Include="Images\Icons\homeicon.png" />
+    <EmbeddedResource Include="Images\Icons\UI_Icon_Filter.png" />
     <EmbeddedResource Include="Images\Icons\UI_Icon_Home.png" />
     <EmbeddedResource Include="Images\Icons\UI_Icon_ID.png" />
     <EmbeddedResource Include="Images\Icons\UI_Icon_List.png" />
@@ -92,8 +69,7 @@
     <EmbeddedResource Include="Images\Icons\UI_Icon_ShoppingBag.png" />
     <EmbeddedResource Include="Images\Icons\UI_Icon_StarEmpty.png" />
     <EmbeddedResource Include="Images\Icons\UI_Icon_Wallet.png" />
-    <EmbeddedResource Include="Images\Images\takisbythepool.jpg" />
-    <EmbeddedResource Include="Images\Images\takisfallingillustrated.jpg" />
+    <EmbeddedResource Include="Images\RawIcons\UI_Icon_Filter.png" />
     <EmbeddedResource Include="Images\RawIcons\UI_Icon_Home.png" />
     <EmbeddedResource Include="Images\takisnmorelogo.jpeg" />
     <EmbeddedResource Include="Images\takisnmorelogotrans.png" />
@@ -189,5 +165,9 @@
     <EmbeddedResource Update="Pages\VerificationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Images\Images\" />
   </ItemGroup>
 </Project>

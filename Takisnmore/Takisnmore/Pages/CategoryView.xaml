@@ -1,12 +1,71 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Takisnmore.Pages.CategoryView">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+             x:Class="Takisnmore.Pages.CategoryView"
+             xmlns:local="clr-namespace:Takisnmore"
+             xmlns:System="clr-namespace:System;assembly=mscorlib">
+
+    <ScrollView> <!--Main Scrollview-->
+        
+        <StackLayout> <!--Main Stacklayout-->
+
+            <Grid HeightRequest="150" Padding="20" BackgroundColor="MediumPurple">
+            <StackLayout Spacing="12"> <!--Top Screen Menu Containing search and filters-->
+                <!--A grid with columns, that has a boxview as a background with columnspan to cover all the columns.-->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <BoxView BackgroundColor="White" CornerRadius="15" Grid.ColumnSpan="3" Opacity="0.5"/>
+                    <Image Source="{local:ImageResource Takisnmore.Images.Icons.UI_Icon_Search.png}"
+                    Aspect="AspectFit"
+                    Margin="15"/>
+                    <Label Text="Search" FontSize="22" Grid.Column="1" VerticalOptions="Center" TextColor="White"/>
+                    <Image Source="{local:ImageResource Takisnmore.Images.Icons.UI_Icon_Filter.png}" Grid.Column="2" Aspect="AspectFit" Margin="15"/>
+                </Grid>
+                <!--Tags-->
+                    <StackLayout Orientation="Horizontal" x:Name="FilterStack"> <!--Use this in c# code to add all the filters every time the user searchs-->
+                        <Grid>
+                            <BoxView BackgroundColor="White" Opacity=".5" CornerRadius="10"/>
+                            <Label Text="Comida" TextColor="White" FontSize="18" Margin="10" x:Name="FirstTagLabel"/>
+                        </Grid>
+                        <!--Placeholders-->
+                        <Grid>
+                            <BoxView BackgroundColor="White" Opacity=".5" CornerRadius="10"/>
+                            <Label Text="30 min." TextColor="White" FontSize="18" Margin="10" x:Name="SecondTagLabel"/>
+                        </Grid>
+                        <Grid>
+                            <BoxView BackgroundColor="White" Opacity=".5" CornerRadius="10"/>
+                            <Label Text="$500" TextColor="White" FontSize="18" Margin="10" x:Name="ThirdTagLabel"/>
+                        </Grid>
+                        <Grid>
+                            <BoxView BackgroundColor="White" Opacity=".5" CornerRadius="10"/>
+                            <Label Text="Vegan" TextColor="White" FontSize="18" Margin="10" x:Name="FourthTagLabel"/>
+                        </Grid>
+                        
+                    </StackLayout> 
+            
+            </StackLayout> <!--All this is for the divisions on the search-->
+                <StackLayout Orientation="Horizontal" Margin="-20" Spacing="0" VerticalOptions="End">
+                    <Button Text="Productos" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" TextColor="White" Clicked="OnlyShowProducts"/>
+                    <Button Text="Tiendas" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" TextColor="White" Clicked="OnlyShowShops"/>
+                </StackLayout>
+                <Grid Margin="-20" HeightRequest="3" VerticalOptions="End">
+                    <BoxView BackgroundColor="LightGray"/>
+                    <StackLayout Orientation="Horizontal" Spacing="0">
+                        <BoxView BackgroundColor="Black" HorizontalOptions="FillAndExpand" x:Name="OnlyProductsLine"/>
+                        <BoxView BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" x:Name="OnlyShopsLine"/>
+                    </StackLayout>
+                </Grid>
+            </Grid>
+
+            <StackLayout> <!--Bottom Screen menu Containing results, whatever they may be-->
+                
+            </StackLayout>
+            
         </StackLayout>
-    </ContentPage.Content>
+        
+    </ScrollView>
 </ContentPage>

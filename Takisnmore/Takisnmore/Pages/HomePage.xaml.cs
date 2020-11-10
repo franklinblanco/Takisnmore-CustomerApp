@@ -91,7 +91,7 @@ namespace Takisnmore.Pages
                     gotocategory.Tapped += (s, e) =>
                     {
                         //What will be done when user taps a category
-                        Navigation.PushAsync(new CategoryView());
+                        Navigation.PushAsync(new CategoryView(catvalues[1], catvalues[0]));
                     };
 
                     //Assignment of values
